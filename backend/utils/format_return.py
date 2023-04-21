@@ -88,4 +88,12 @@ class ReturnMessageEnhance:
             'code': 0,
             'message': msg
         })
+
+    @staticmethod
+    def json(data: dict, count: int):
+        return js({
+            'code': 0,
+            'count': count,
+            'data': data
+        })
     

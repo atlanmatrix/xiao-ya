@@ -2,4 +2,4 @@
 # @Author:  Claude Manchester
 # Time   : 2023/2/17 11:15
 
-from .note_model import KubeModel
+from .note_model import NoteModel, NoteVersionModel

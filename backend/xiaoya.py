@@ -31,13 +31,13 @@ class CustomConfig(Config):
 
 @app.listener("before_server_start")
 async def init(app, loop):
-    user = os.environ.get("POSTGRESQL_USER")
+    user = os.environ.get("POSTGRES_USER")
     if user is None:
-        raise RuntimeError(f"环境变量 **POSTGRESQL_USER** 未设置")
+        raise RuntimeError(f"环境变量 **POSTGRES_USER** 未设置")
 
-    passwd = os.environ.get("POSTGRESQL_PWD")
+    passwd = os.environ.get("POSTGRES_PASSWORD")
     if passwd is None:
-        raise RuntimeError(f"环境变量 **POSTGRESQL_PWD** 未设置")
+        raise RuntimeError(f"环境变量 **POSTGRES_PASSWORD** 未设置")
 
     app.ctx.pg_user = user
     app.ctx.pg_passwd = passwd
@@ -50,7 +50,8 @@ async def start(app, loop):
 
 def init_db_engine():
     url = f"postgresql+asyncpg://{app.ctx.pg_user}:{app.ctx.pg_passwd}@" \
-          f"{cfg.PG_CONFIG.host}:{cfg.PG_CONFIG.port}/xiaoya"
+          f"{cfg.PG_CONFIG.host}:{cfg.PG_CONFIG.port}/" \
+          f"{cfg.PG_CONFIG.db_map.xiaoya}"
 
     app.ctx.engine = create_async_engine(url)
 
@@ -103,7 +104,7 @@ def main():
         dev=debug,
         debug=debug,
         auto_reload=auto_reload,
-        access_log=False,
+        access_log=True,
         workers=workers)
 
 

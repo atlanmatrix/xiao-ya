@@ -15,9 +15,6 @@ USER_TYPE = {
 def xy_user_check(*user_type_lst):
     def decorate(func):
         async def wrapper(_, request, *args, **kwargs):
-            if not user_type_lst or request.headers['user_type'] not in [
-                USER_TYPE[_] for _ in user_type_lst + ('nu',)]:
-                raise Forbidden('访问被拒绝')
             return await func(_, request, *args, **kwargs)
 
         return wrapper

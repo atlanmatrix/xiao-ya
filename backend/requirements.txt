@@ -1,0 +1,7 @@
+aioredis~=2.0.1
+redis~=4.5.1
+asyncpg~=0.27.0
+SQLAlchemy~=2.0.3
+sanic~=22.12.0
+sanic-dantic~=1.1.9
+colorlog~=6.7.0
