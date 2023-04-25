@@ -1,53 +1,27 @@
 <template>
-    <v-header ref="header"></v-header>
-    <router-view/>
-    <v-footer ref="footer"></v-footer>
+    <el-config-provider namespace="ep">
+        <BaseHeader/>
+        <RouterView/>
+    </el-config-provider>
 </template>
 
-<script>
-import vHeader from "./components/header"
-import vFooter from "./components/footer"
-
-export default {
-    name: 'App',
-    data() {
-        return {
-            msg: 'hello'
-        }
-    },
-    methods: {
-
-    },
-    components: {
-        'v-header': vHeader,
-        'v-footer': vFooter
-    }
-}
-</script>
-
 <style>
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
 #app {
-    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
+    text-align: center;
+    color: var(--ep-text-color-primary);
 }
 
-.el-row {
-    margin: 20px 0;
-}
-
-.el-col {
-    margin-bottom: 20px;
-}
-
-.view-ctn {
-    margin-bottom: 25px;
+.element-plus-logo {
+    width: 50%;
 }
 </style>
+<script type="ts">
+import HomeView from "~/views/HomeView.vue";
+
+export default {
+    components: {HomeView},
+    created() {
+    }
+}
+
+</script>
