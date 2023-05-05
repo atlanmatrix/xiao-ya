@@ -8,3 +8,4 @@ from .media_wall_data_model import MediaWallDataCreateModel, \
     MediaWallDataUpdateModel, MediaWallDataGetListModel
 from .note_data_model import NoteDataCreateModel, NoteDataGetDetailModel, \
     NoteDataGetListModel, NoteDataDeleteModel, NoteDataUpdateModel
+from .github_login_data_model import GithubLoginView
