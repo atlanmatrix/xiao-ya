@@ -20,3 +20,7 @@ def xy_user_check(*user_type_lst):
         return wrapper
 
     return decorate
+
+
+class GithubAuth:
+    pass

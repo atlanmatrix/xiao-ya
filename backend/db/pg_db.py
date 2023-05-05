@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author:  Claude Manchester
 # Time   : 2023/2/17 11:14
+import traceback
 
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
@@ -42,20 +43,20 @@ class PG:
                 pass
             return True
         except ConnectionError as conn:
-            print(f"连接数据库失败: {conn}")
+            logger.error(f"连接数据库失败: {conn}")
+            traceback.print_exc()
             raise ConnectionError()
-        except Exception as err:
-            print(f"连接数据库失败: {err}")
-            raise err
+        except Exception as e:
+            logger.error(f"连接数据库失败: {e}")
+            traceback.print_exc()
+            raise e
 
     async def close(self):
         try:
             await self.engine.dispose()
         except ConnectionError as conn:
-            # logger.error(f"连接数据库失败: {conn}")
-            print(f"关闭数据库连接失败: {conn}")
+            logger.error(f"关闭数据库连接失败: {conn}")
             raise ConnectionError
-        except Exception as err:
-            # logger.error(f"关闭数据库连接失败: {err}")
-            print(f"关闭数据库连接失败: {err}")
-            raise err
+        except Exception as e:
+            logger.error(f"关闭数据库连接失败: {e}")
+            raise e

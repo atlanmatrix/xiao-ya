@@ -14,6 +14,12 @@ import {toggleDark} from "~/composables";
             </el-icon>
             {{ item.text }}
         </el-menu-item>
+        <el-menu-item>
+            <el-link href="https://github.com/login/oauth/authorize?client_id=24197283515faf4e8795" target="self">
+                <el-icon><User /></el-icon>
+                Login
+            </el-link>
+        </el-menu-item>
 <!--        <el-menu-item h="full" @click="toggleDark()">-->
 <!--            <button-->
 <!--                    class="border-none w-full bg-transparent cursor-pointer"-->

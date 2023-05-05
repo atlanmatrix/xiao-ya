@@ -1,7 +1,10 @@
+drop table if exists public.xy_user;
 create table public.xy_user
 (
     id serial primary key,
     account varchar(255),
+    account_type int,
+    identify_code varchar(255),
     nickname varchar(255),
     phone varchar(11),
     email varchar(255),
@@ -14,6 +17,8 @@ create table public.xy_user
 
 comment on column xy_user.id is 'user id';
 comment on column xy_user.account is 'user account';
+comment on column xy_user.account_type is '-1: local  1: Github  2: Google';
+comment on column xy_user.identify_code is 'uuid/Github id/Google id';
 comment on column xy_user.nickname is 'user nickname';
 comment on column xy_user.phone is 'user phone';
 comment on column xy_user.email is 'user email';

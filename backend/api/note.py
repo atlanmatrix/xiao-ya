@@ -9,6 +9,7 @@ from sanic_dantic import parse_params
 from sqlalchemy import func, select, insert
 from sqlalchemy.ext.asyncio import async_sessionmaker
 
+from backend.logs import logger
 from backend.config import APP_NAME
 from backend.utils.authorization import xy_user_check
 from backend.data_model import NoteDataGetListModel, NoteDataCreateModel
@@ -83,6 +84,7 @@ class XYNoteListView(XYBaseClass):
             try:
                 await session.commit()
             except Exception as e:
+                logger.error('Insert note failed')
                 traceback.print_exc()
                 return Resp.err_msg(str(e))
         return Resp.ok_msg('笔记保存成功')
