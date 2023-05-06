@@ -1,6 +1,7 @@
 <template>
     <el-config-provider namespace="ep">
-        <BaseHeader/>
+        <!-- <BaseHeader/> -->
+        <YaHeader />
         <RouterView/>
     </el-config-provider>
 </template>
@@ -9,6 +10,7 @@
 #app {
     text-align: center;
     color: var(--ep-text-color-primary);
+    height: 100%;
 }
 
 .element-plus-logo {

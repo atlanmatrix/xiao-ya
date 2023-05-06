@@ -37,6 +37,9 @@ VueMarkdownEditor.use(vuepressTheme, {
     Prism,
 });
 
+import * as Utils from './components/utils'
+app.config.globalProperties.$utils = Utils;
+
 app.use(router)
 app.use(VueMarkdownEditor);
 app.mount("#app");

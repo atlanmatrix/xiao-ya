@@ -10,13 +10,23 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/note/editor/rich-text',
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue')
+    },
+    {
+      path: '/note',
       name: 'note',
+      component: () => import('../views/NoteView.vue')
+    },
+    {
+      path: '/note/editor/rich-text',
+      name: 'rich-note-editor',
       component: () => import('../views/note/RTEditorView.vue')
     },
     {
       path: '/note/editor/markdown',
-      name: 'note',
+      name: 'md-note-editor',
       component: () => import('../views/note/MDEditorView.vue')
     },
     {
